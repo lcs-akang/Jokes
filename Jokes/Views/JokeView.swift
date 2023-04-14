@@ -13,34 +13,45 @@ struct JokeView: View {
     
     @State var punchlineOpacity = 0.0
     
-    @State var currentJoke = exampleJoke
+    @State var currentJoke: Joke?
     
     // MARK: Computed properties
     var body: some View {
         NavigationView {
             VStack {
-                Text(currentJoke.setup)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
                 
-                Button(action: {
-                    withAnimation(.easeIn(duration: 1)) {
-                        punchlineOpacity = 1.0
-                    }
-                }, label: {
-                    Image(systemName: "arrow.down.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40)
-                        .tint(.black)
-                })
                 
-                Text(currentJoke.punchline)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .opacity(punchlineOpacity)
+                if let currentJoke = currentJoke {
+                    
+                    Text(currentJoke.setup)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                    
+                    Button(action: {
+                        withAnimation(.easeIn(duration: 1)) {
+                            punchlineOpacity = 1.0
+                        }
+                    }, label: {
+                        Image(systemName: "arrow.down.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40)
+                            .tint(.black)
+                    })
+                    
+                    Text(currentJoke.punchline)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .opacity(punchlineOpacity)
+                    
+                } else {
+                    ProgressView()
+                }
             }
             .navigationTitle("Random Jokes")
+        }
+        .task {
+            currentJoke = await NetworkService.fetch()
         }
     }
 }
