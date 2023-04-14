@@ -11,6 +11,7 @@
 		A785AF9E29E9A50400BFB194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A785AF9D29E9A50400BFB194 /* Assets.xcassets */; };
 		A785AFA129E9A50400BFB194 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A785AFA029E9A50400BFB194 /* Preview Assets.xcassets */; };
 		A785AFA929E9A57A00BFB194 /* JokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785AFA829E9A57A00BFB194 /* JokeView.swift */; };
+		A785AFAC29E9A7F200BFB194 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785AFAB29E9A7F200BFB194 /* Joke.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A785AF9D29E9A50400BFB194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A785AFA029E9A50400BFB194 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A785AFA829E9A57A00BFB194 /* JokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeView.swift; sourceTree = "<group>"; };
+		A785AFAB29E9A7F200BFB194 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				A785AF9929E9A4FB00BFB194 /* JokesApp.swift */,
 				A785AFA729E9A56200BFB194 /* Views */,
+				A785AFAA29E9A7D200BFB194 /* Model */,
 				A785AF9D29E9A50400BFB194 /* Assets.xcassets */,
 				A785AF9F29E9A50400BFB194 /* Preview Content */,
 			);
@@ -73,6 +76,14 @@
 				A785AFA829E9A57A00BFB194 /* JokeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A785AFAA29E9A7D200BFB194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A785AFAB29E9A7F200BFB194 /* Joke.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			files = (
 				A785AF9A29E9A4FB00BFB194 /* JokesApp.swift in Sources */,
 				A785AFA929E9A57A00BFB194 /* JokeView.swift in Sources */,
+				A785AFAC29E9A7F200BFB194 /* Joke.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
