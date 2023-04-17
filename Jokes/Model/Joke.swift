@@ -5,13 +5,14 @@
 //  Created by Aidan Kang on 2023-04-14.
 //
 
+import Blackbird
 import Foundation
 
-struct Joke: Identifiable, Codable {
-    let type: String
-    let setup: String
-    let punchline: String
-    let id: Int
+struct Joke: Identifiable, Codable, BlackbirdModel {
+    @BlackbirdColumn let type: String
+    @BlackbirdColumn let setup: String
+    @BlackbirdColumn let punchline: String
+    @BlackbirdColumn let id: Intç
 }
 
 let exampleJoke = Joke(type: "general",
