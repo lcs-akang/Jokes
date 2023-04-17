@@ -13,6 +13,7 @@ struct FavouritesView: View {
     
     // MARK: Stored properties
     
+    @Environment(\.blackbirdDatabase) var db: Blackbird.Database?
     
     @BlackbirdLiveModels({ db in
         try await Joke.read(from: db)
@@ -31,9 +32,32 @@ struct FavouritesView: View {
                         Text(currentJoke.punchline)
                     }
                 }
+                .onDelete(perform: removeRows)
             }
             
             .navigationTitle("Favourite Jokes")
+        }
+    }
+    
+    // MARK: Functions
+    func removeRows(at offsets: IndexSet) {
+        
+        Task {
+            
+            try await db!.transaction { core in
+                
+                var idList = ""
+                for offset in offsets {
+                    idList += "\(favouriteJokes.results[offset].id),"
+                }
+                
+                print(idList)
+                idList.removeLast()
+                print(idList)
+                
+                try core.query("DELETE FROM Joke WHERE id IN (?)", idList)
+                
+            }
         }
     }
 }
