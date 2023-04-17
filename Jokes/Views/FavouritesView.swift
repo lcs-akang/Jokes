@@ -23,13 +23,16 @@ struct FavouritesView: View {
     var body: some View {
         
         NavigationView {
-            List(favouriteJokes.results) { currentJoke in
-                VStack(alignment: .leading) {
-                    Text(currentJoke.setup)
-                        .bold()
-                    Text(currentJoke.punchline)
+            List {
+                ForEach(favouriteJokes.results) { currentJoke in
+                    VStack(alignment: .leading) {
+                        Text(currentJoke.setup)
+                            .bold()
+                        Text(currentJoke.punchline)
+                    }
                 }
             }
+            
             .navigationTitle("Favourite Jokes")
         }
     }
