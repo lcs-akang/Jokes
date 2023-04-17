@@ -9,10 +9,10 @@ import Blackbird
 import Foundation
 
 struct Joke: Identifiable, Codable, BlackbirdModel {
-    @BlackbirdColumn let type: String
-    @BlackbirdColumn let setup: String
-    @BlackbirdColumn let punchline: String
-    @BlackbirdColumn let id: Intç
+    @BlackbirdColumn var type: String
+    @BlackbirdColumn var setup: String
+    @BlackbirdColumn var punchline: String
+    @BlackbirdColumn var id: Int
 }
 
 let exampleJoke = Joke(type: "general",
